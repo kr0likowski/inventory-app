@@ -11,8 +11,7 @@
         android:layout_margin="16dp"
         android:clickable="true"
         android:src="@drawable/pluscircle"
-        app:layout_anchor="@id/viewA"
-        app:layout_anchorGravity="|bottom|right"/>
+        />
 
     <LinearLayout
         android:layout_width="match_parent"

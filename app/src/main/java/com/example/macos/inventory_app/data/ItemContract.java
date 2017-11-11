@@ -4,6 +4,7 @@ import android.provider.BaseColumns;
 
 public final class ItemContract {
     public ItemContract(){}
+    public static final String CONTENT_URI = "com.example.macos.inventory_app";
 
     public static class ItemEntry implements BaseColumns{
         public static final String _ID = BaseColumns._ID;
