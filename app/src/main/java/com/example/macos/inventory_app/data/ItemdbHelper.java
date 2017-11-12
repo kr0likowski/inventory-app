@@ -24,7 +24,7 @@ public class ItemdbHelper extends SQLiteOpenHelper {
                 + ItemEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + ItemEntry.COLUMN_NAME_NAME + " TEXT NOT NULL, "
                 + ItemEntry.COLUMN_NAME_PRICE + " TEXT, "
-                + ItemEntry.COLUMN_NAME_QUANTITY + " INTEGER NOT NULL, "
+                + ItemEntry.COLUMN_NAME_QUANTITY + " INTEGER NOT NULL "
                 + " );";
         sqLiteDatabase.execSQL(SQL_CREATE_PETS_TABLE);
     }

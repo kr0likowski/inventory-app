@@ -11,30 +11,14 @@
         android:layout_margin="16dp"
         android:clickable="true"
         android:src="@drawable/pluscircle"
+        android:layout_gravity="bottom|right|"
         />
 
-    <LinearLayout
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/viewA"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.6"
-            android:background="@android:color/holo_purple"
-            android:orientation="horizontal"/>
-
-        <LinearLayout
-            android:id="@+id/viewB"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.4"
-            android:background="@android:color/holo_orange_light"
-            android:orientation="horizontal"/>
-
-    </LinearLayout>
+        android:id="@+id/listView">
+    </ListView>
 
 
 
