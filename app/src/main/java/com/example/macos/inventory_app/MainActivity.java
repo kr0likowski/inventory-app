@@ -15,11 +15,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.macos.inventory_app.data.ItemContract;
 import com.example.macos.inventory_app.data.ItemCursorAdapter;
 
+import java.net.URI;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -47,9 +50,17 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLoaderManager().initLoader(0, null,this);
-        listView = (ListView)findViewById(R.id.listView);
         setContentView(R.layout.activity_main);
+        listView = (ListView)findViewById(R.id.lv);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Uri currenturi = ContentUris.withAppendedId(ItemContract.ItemEntry.FULL_URI,l);
+                Intent intent = new Intent(getApplicationContext(),EditorActivity.class);
+                intent.setData(currenturi);
+                startActivity(intent);
+            }
+        });
         floatingActionButton = (FloatingActionButton)findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
              startActivity(intent);
             }
         });
+        getLoaderManager().initLoader(0, null,this);
     }
 
     @Override
@@ -75,7 +87,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
     adapter = new ItemCursorAdapter(getApplicationContext(),data);
         adapter.swapCursor(data);
-        listView = (ListView)findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
     }

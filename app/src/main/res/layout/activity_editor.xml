@@ -25,7 +25,8 @@
         android:layout_weight="2">
         <EditText
             android:layout_height="wrap_content"
-            android:layout_width="150dp"></EditText>
+            android:layout_width="150dp"
+            android:id="@+id/name"></EditText>
         <EditText
             android:layout_height="wrap_content"
             android:layout_width="150dp"></EditText></LinearLayout>
@@ -73,6 +74,7 @@
             <EditText
                 android:layout_marginTop="10dp"
                 android:layout_width="150dp"
+                android:id="@+id/price"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 </LinearLayout>
